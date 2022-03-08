@@ -1,0 +1,354 @@
+//primary colors
+$white: #FFFFFF;
+$light_blue:#D0D6F9;
+$dark_blue:#0B0D17;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: url('../../assets/home/background-home-desktop.jpg') center no-repeat;
+    height: 100vh;
+    color: $white;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+@font-face {
+    font-family: bellefair;
+    src: url('../../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf');
+}
+
+@font-face {
+    font-family: barlow;
+    src: url('../../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+}
+
+@mixin font($name) {
+    font-family: $name;
+}
+
+@mixin roundButton($width, $height) {
+    width: $width;
+    height: $height;
+    border-radius: 100%;
+}
+
+.black {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    transform: scale(20);
+    background: $dark_blue;
+    z-index: 4;
+    transform-origin: center;
+    border-radius: 100%
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0rem 0rem 0rem;
+    @include font('barlow');
+
+    img {
+        margin: 0rem 2rem;
+    }
+
+    .desktop-nav {
+        ul {
+            position: relative;
+            width: 51rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0rem 4rem 0rem 2rem;
+            background: rgba(255, 255, 255, 0.034);
+            backdrop-filter: blur(25px);
+
+            li {
+                // display: inline-block;
+                padding: 2rem 0rem;
+
+                span {
+
+                    margin-right: 1rem;
+                }
+
+                height: 100%;
+            }
+
+            li:hover {
+                border-bottom: 2px solid #ffffff91;
+
+                span {
+                    color: rgba(155, 154, 154, 0.979);
+                }
+            }
+
+            li.active {
+                border-bottom: 2px solid #FFFFFF;
+            }
+
+        }
+
+        ul::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 1px;
+            left: -400px;
+            opacity: 25%;
+            background: $white;
+        }
+
+    }
+
+    .mobile-nav {
+        display: none;
+
+    }
+
+}
+
+
+
+main {
+    display: flex;
+    justify-content: space-between;
+
+    .intro {
+        position: relative;
+        width: 35%;
+
+
+
+        h1 {
+            font-size: 10em;
+            @include font('bellefair');
+            font-weight: lighter;
+        }
+
+        h3 {
+            font-size: 2em;
+            font-weight: lighter;
+            letter-spacing: 3px;
+            color: $light_blue;
+            @include font('barlow');
+        }
+
+        p {
+            color: $light_blue;
+            font-size: 1.2em;
+            @include font('barlow');
+            line-height: 32px;
+        }
+
+        padding: 6rem 0rem 0rem 4rem;
+
+    }
+
+    button {
+        @include roundButton(15rem, 15rem);
+        position: relative;
+        display: grid;
+        place-items: center;
+        align-self: flex-end;
+        margin: 0rem 9rem 0em 0rem;
+        font-size: 2em;
+        border: none;
+        font-weight: lighter;
+        @include font('bellefair');
+
+        div {
+            content: "";
+            position: absolute;
+            @include roundButton(25rem, 25rem);
+            margin: auto;
+            background: white;
+            opacity: 0%;
+            z-index: -1;
+            transform: scale(0);
+            transition: transform .3s 0s ease-in-out;
+        }
+
+    }
+
+    button:hover div {
+        opacity: 10%;
+        transform: scale(1);
+    }
+
+    // button:active {
+    //     transform: scale(0.95);
+    //     transition: all .1s linear;
+    // }
+
+
+
+
+}
+
+// media queries
+@media screen and (max-width:768px) {
+    body {
+        position: relative;
+    }
+
+    header {
+        padding: 0rem;
+
+        .desktop-nav {
+            ul {
+                width: 30rem;
+                padding: 0rem 1rem 0rem 1rem;
+
+                li {
+                    padding: 2rem 1rem;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                backdrop-filter: blur(81px);
+            }
+
+            ul::before {
+                display: none;
+            }
+
+        }
+
+
+        img {
+            margin: 2rem;
+        }
+    }
+
+    body {
+        background: url('../../assets/home/background-home-tablet.jpg') center no-repeat;
+
+
+    }
+
+    main {
+        display: block;
+
+        .intro {
+            padding: 5rem 0rem 0rem 0rem;
+            width: 100%;
+            text-align: center;
+
+            h1 {
+                font-size: 10rem;
+                margin: 1.5rem;
+            }
+
+            p {
+                width: 70%;
+                margin: 0 auto;
+            }
+        }
+
+        button {
+            margin: 8rem auto 0rem auto;
+
+        }
+    }
+
+}
+
+@media screen and (max-width:425px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: block;
+
+            ul {
+                position: absolute;
+                top: 0;
+                right: 0rem;
+                width: 75%;
+                height: 100%;
+                visibility: hidden;
+                z-index: 3;
+                padding: 13rem 4rem 0rem 2rem;
+                background: rgba(255, 255, 255, 0.034);
+                backdrop-filter: blur(81px);
+                opacity: 0;
+                transition: opacity .5s ease-in-out;
+
+                .icn-close {
+                    position: absolute;
+                    top: 0rem;
+                    right: 0rem;
+                    cursor: pointer;
+                }
+
+                li {
+                    font-size: 1.4em;
+                    margin: 0rem 0rem 2rem 0rem;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 1rem;
+
+                    }
+                }
+            }
+
+        }
+
+        ul.active {
+            opacity: 1;
+            visibility: visible;
+
+        }
+    }
+
+    main {
+        .intro {
+            h1 {
+
+                font-size: 7rem;
+
+            }
+        }
+    }
+}

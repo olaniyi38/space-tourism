@@ -1,0 +1,452 @@
+//primary colors
+$white: #FFFFFF;
+$light_blue:#D0D6F9;
+$dark_blue:#0B0D17;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+    color: $light_blue;
+}
+
+body {
+    background: url('../../assets/destination/background-destination-desktop.jpg') no-repeat center;
+    color: $white;
+    overflow-x: hidden;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+@font-face {
+    font-family: bellefair;
+    src: url('../../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf');
+}
+
+@font-face {
+    font-family: barlow;
+    src: url('../../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+}
+
+@mixin font($name) {
+    font-family: $name;
+}
+
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.black {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    transform: scale(20);
+    background: $dark_blue;
+    z-index: 4;
+    transform-origin: center;
+    border-radius: 100%
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 2px;
+    span{
+        font-weight: bold;
+    }
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0rem 0rem 0rem;
+    @include font('barlow');
+
+    img {
+        margin: 0rem 2rem;
+    }
+
+    .desktop-nav {
+        ul {
+            position: relative;
+            width: 51rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0rem 4rem 0rem 2rem;
+            background: rgba(255, 255, 255, 0.034);
+            backdrop-filter: blur(25px);
+
+            li {
+                // display: inline-block;
+                padding: 2rem 0rem;
+                span {
+                  
+                    margin-right: 1rem;
+                }
+
+                height: 100%;
+            }
+
+            li:hover {
+                border-bottom: 2px solid #ffffff91;
+
+                span {
+                    color: rgba(155, 154, 154, 0.979);
+                }
+            }
+
+            li.active {
+                border-bottom: 2px solid #FFFFFF;
+            }
+
+        }
+
+        ul::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 1px;
+            left: -400px;
+            opacity: 25%;
+            background: $white;
+        }
+
+    }
+
+    .mobile-nav {
+        display: none;
+
+    }
+
+}
+
+main {
+    h1 {
+        font-size: 2em;
+        padding: 3rem;
+        font-weight: 400;
+        @include font("barlow");
+        letter-spacing: 3px;
+
+        span {
+            color: rgba(112, 112, 112, 0.514);
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+    }
+
+    nav {
+        width: 50%;
+        margin: 0 0 0 auto;
+        padding: 0rem 5rem 0rem 5.5rem;
+
+        ul {
+            @include flex(space-between, center);
+
+            li {
+                @include font('barlow');
+                position: relative;
+                font-weight: 400;
+                letter-spacing: 3px;
+                color: $light_blue;
+                list-style: none;
+                padding: 0rem 0rem 1rem 0rem;
+                cursor: pointer;
+            }
+
+            li:hover {
+                color: #838383;
+            }
+
+            li::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                background: white;
+                transform: scaleX(0);
+                transition: all .5s ease-out;
+                transform-origin: center;
+            }
+
+            li.active::before {
+                transform: scale(1);
+            }
+        }
+
+    }
+
+    .destinations {
+        height: 90vh;
+
+        .template {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .info {
+            padding-left: 5rem;
+        }
+
+        .image {
+            justify-self: center;
+            width: 100%;
+            animation: rotate 20s ease-in-out infinite forwards;
+
+        }
+
+        img {
+        }
+
+
+        .content {
+            width: 80%;
+
+            h2.name {
+                font-size: 6.25em;
+                font-weight: 400;
+                margin: 2rem 0rem;
+                @include font("bellefair");
+                // visibility: hidden;
+
+            }
+
+            p.description {
+                font-size: 1.2em;
+                color: $light_blue;
+                @include font("barlow");
+                line-height: 32px;
+                font-weight: 400;
+
+
+            }
+
+            .distance,
+            .travel-time {
+                display: inline-block;
+                margin: 2rem 2rem 2rem 0rem;
+                @include font('barlow');
+                text-transform: capitalize;
+
+                h3 {
+                    letter-spacing: 3px;
+                    font-weight: 400;
+                    margin: 0rem 0rem .5rem 0rem;
+                    font-size: 1em;
+                    color: $light_blue;
+                }
+
+                p {
+                    @include font("barlow");
+                    font-size: 2em;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    body {
+        background: url('../../assets/destination/background-destination-tablet.jpg') top no-repeat;
+        background-size: cover;
+
+    }
+
+    header {
+        padding: 0rem;
+  
+        .desktop-nav {
+            ul {
+                width: 30rem;
+                padding: 0rem 1rem 0rem 1rem;
+
+                li {
+                    padding: 2rem 1rem;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                backdrop-filter: blur(81px);
+            }
+
+            ul::before {
+                display: none;
+            }
+
+        }
+        
+
+        img {
+            margin: 2rem;
+        }
+    }
+
+
+    main {
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        .destinations {
+            height: 100%;
+            position: relative;
+
+            .image {
+                margin-bottom: 5rem;
+                width: 300px;
+                min-height: 300px;
+                margin: 0rem auto 5rem auto;
+                background-size: contain;
+            }
+
+            .info {
+                padding: 0rem;
+            }
+
+            .template {
+                display: block;
+                text-align: center;
+
+            }
+
+            .content {
+                margin: 0rem 0rem 0rem 0rem;
+
+                p.description {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.473);
+                    padding-bottom: 2rem;
+                    width: 75%;
+                    margin: 0 auto;
+
+                }
+
+                width: 100%;
+
+                .distance,
+                .travel-time {
+                    margin: 1rem 4rem;
+                }
+            }
+        }
+
+        nav {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 21rem;
+            margin: 0 auto;
+            width: 28.8rem;
+            text-transform: uppercase;
+        }
+    }
+
+}
+
+@media screen and (max-width:425px) {
+    body{
+        background: url('../../assets/destination/background-destination-mobile.jpg') top no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+    header {
+      
+        .desktop-nav {
+            display: none;
+        }
+
+         .mobile-nav {
+             display: block;
+             ul {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 75%;
+                height: 100%;
+                visibility: hidden;
+                z-index: 3;
+                padding: 13rem 4rem 0rem 2rem;
+                background: rgba(255, 255, 255, 0.034);
+                backdrop-filter: blur(81px);
+                // transform: translateX(100%);
+                opacity: 0;
+                transition: opacity  .5s ease-in-out;
+
+                .icn-close{
+                    position: absolute;
+                    top: 0rem;
+                    right: 0rem;
+                    cursor: pointer;
+                }
+                li {
+                    font-size: 1.4em;
+                    margin: 0rem 0rem 2rem 0rem;
+                    span {
+                        display: inline-block;
+                        margin-right: 1rem;
+                     
+                    }
+                }
+            }
+
+        }
+        ul.active{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    main {
+        nav {
+            width: 26rem;
+            top: 14rem;
+        }
+
+        h1 {
+            padding: 0rem 0rem 2rem 1rem;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .destinations{
+            .content{
+                h2.name{
+                    font-size: 4em;
+                    margin: 5.5rem 0rem 1rem 0rem;
+                }
+                p.description{
+                    width: 80%;
+                }
+            }
+            .image{
+                width: 200px;
+                min-height: 200px;
+                margin: 0rem auto 2rem auto;
+            }
+        }
+    }
+
+}

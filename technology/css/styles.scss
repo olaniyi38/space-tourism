@@ -1,0 +1,401 @@
+//primary colors
+$white: #FFFFFF;
+$light_blue:#D0D6F9;
+$dark_blue:#0B0D17;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $light_blue;
+}
+
+body {
+    background: url('../../assets/technology/background-technology-desktop.jpg') no-repeat center;
+    color: $white;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.black {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    transform: scale(20);
+    background: $dark_blue;
+    z-index: 4;
+    transform-origin: center;
+    border-radius: 100%
+}
+
+@font-face {
+    font-family: bellefair;
+    src: url('../../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf');
+}
+
+@font-face {
+    font-family: barlow;
+    src: url('../../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+}
+
+@mixin font($name) {
+    font-family: $name;
+}
+
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0rem 0rem 0rem;
+    @include font('barlow');
+
+    img {
+        margin: 0rem 2rem;
+    }
+
+    .desktop-nav {
+        ul {
+            position: relative;
+            width: 51rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0rem 4rem 0rem 2rem;
+            background: rgba(255, 255, 255, 0.034);
+            backdrop-filter: blur(25px);
+
+            li {
+                // display: inline-block;
+                padding: 2rem 0rem;
+
+                span {
+
+                    margin-right: 1rem;
+                }
+
+                height: 100%;
+            }
+
+            li:hover {
+                border-bottom: 2px solid #ffffff91;
+
+                span {
+                    color: rgba(155, 154, 154, 0.979);
+                }
+            }
+
+            li.active {
+                border-bottom: 2px solid #FFFFFF;
+            }
+
+        }
+
+        ul::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 1px;
+            left: -400px;
+            opacity: 25%;
+            background: $white;
+        }
+
+    }
+
+    .mobile-nav {
+        display: none;
+
+    }
+
+}
+
+main {
+    padding: 3rem 0rem 3rem 3rem;
+    position: relative;
+
+    h2 {
+        letter-spacing: 3px;
+        font-weight: 400;
+        margin: 0rem 0rem 12rem 3rem;
+        text-transform: uppercase;
+        @include font('barlow');
+        font-size: 2em;
+
+        span {
+            margin-right: 1rem;
+            color: $light_blue;
+        }
+    }
+
+    .nav {
+        position: absolute;
+        top: 16rem;
+        left: 3rem;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 100%;
+            line-height: 4.5rem;
+            border: 1px solid $white;
+            text-align: center;
+            margin: 1rem 0rem;
+            font-size: 1.3em;
+        }
+
+        span:hover {
+            color: $white;
+            background: rgba(255, 255, 255, 0.562);
+        }
+
+        span.active {
+            color: $dark_blue;
+            background: $white;
+
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .info {
+            padding-left: 10rem;
+
+            p:first-child {
+                color: $light_blue;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                margin: 1rem 0rem;
+                @include font('barlow');
+
+            }
+
+            .name {
+                font-size: 3rem;
+                @include font('bellefair');
+                margin: 1rem 0rem;
+                text-transform: uppercase;
+            }
+
+            .about {
+                @include font('barlow');
+                color: $light_blue;
+                line-height: 32px;
+
+
+            }
+        }
+
+        .image {
+            background: url('../../assets/technology/image-launch-vehicle-landscape.jpg') top no-repeat;
+            margin-left: auto;
+            position: relative;
+            top: -7rem;
+            width: 30rem;
+            height: 30rem;
+            background-size: contain;
+
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    body {
+        background: url('../../assets/technology/background-technology-tablet.jpg') top no-repeat;
+    }
+
+    header {
+        padding: 0rem;
+
+        .desktop-nav {
+            ul {
+                width: 30rem;
+                padding: 0rem 1rem 0rem 1rem;
+
+                li {
+                    padding: 2rem 1rem;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                backdrop-filter: blur(81px);
+            }
+
+            ul::before {
+                display: none;
+            }
+
+        }
+
+
+        img {
+            margin: 2rem;
+        }
+    }
+
+
+    main {
+        padding: 3rem 0rem;
+
+        h2 {
+            margin: 0rem 0rem 4rem 3rem;
+        }
+
+        .container {
+            grid-template-columns: 1fr;
+
+            .image {
+                background: url('../../assets/technology/image-launch-vehicle-landscape.jpg') top no-repeat;
+                background-size: contain;
+                top: 0;
+                grid-area: 1/1;
+                width: 100%;
+                height: 350px;
+
+            }
+
+            .info {
+                text-align: center;
+                padding: 7rem 0rem 0rem 0rem;
+
+                .about {
+                    width: 65%;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .nav {
+            flex-direction: row;
+            justify-content: space-between;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            width: 18rem;
+            top: 32rem;
+
+            span {}
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+    body {
+        background: url('../../assets/technology/background-technology-mobile.jpg') top no-repeat;
+        height: 100vh;
+        background-size: cover;
+    }
+
+    header {
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: block;
+
+            ul {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 75%;
+                height: 100%;
+                visibility: hidden;
+                z-index: 3;
+                padding: 13rem 4rem 0rem 2rem;
+                background: rgba(255, 255, 255, 0.034);
+                backdrop-filter: blur(81px);
+                // transform: translateX(100%);
+                opacity: 0;
+                transition: opacity .5s ease-in-out;
+
+                .icn-close {
+                    position: absolute;
+                    top: 0rem;
+                    right: 0rem;
+                    cursor: pointer;
+                }
+
+                li {
+                    font-size: 1.4em;
+                    margin: 0rem 0rem 2rem 0rem;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 1rem;
+
+                    }
+                }
+            }
+
+        }
+
+        ul.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    main {
+        h2 {
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .container {
+            .image {
+                height: 11rem;
+            }
+
+            .info {
+                padding-top: 8rem;
+
+                .about {
+                    width: 80%;
+                }
+            }
+        }
+
+        .nav {
+            top: 22rem;
+
+            span {
+                width: 3.5rem;
+                height: 3.5rem;
+                line-height: 3.5rem;
+            }
+        }
+    }
+}

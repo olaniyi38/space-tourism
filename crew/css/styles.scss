@@ -1,0 +1,411 @@
+//primary colors
+$white: #FFFFFF;
+$light_blue:#D0D6F9;
+$dark_blue:#0B0D17;
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box
+}
+
+a {
+    text-decoration: none;
+    color: $light_blue;
+}
+
+body {
+    background: url("../../assets/crew/background-crew-desktop.jpg") center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: $white;
+    position: relative;
+}
+
+@font-face {
+    font-family: bellefair;
+    src: url('../../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf');
+}
+
+@font-face {
+    font-family: barlow;
+    src: url('../../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf');
+}
+
+@mixin font($name) {
+    font-family: $name;
+}
+
+@mixin flex($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.black {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    transform: scale(20);
+    background: $dark_blue;
+    z-index: 4;
+    transform-origin: center;
+    border-radius: 100%
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0rem 0rem 0rem;
+    @include font('barlow');
+
+    img {
+        margin: 0rem 2rem;
+    }
+
+    .desktop-nav {
+        ul {
+            position: relative;
+            width: 51rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0rem 4rem 0rem 2rem;
+            background: rgba(255, 255, 255, 0.034);
+            backdrop-filter: blur(25px);
+
+            li {
+                // display: inline-block;
+                padding: 2rem 0rem;
+
+                span {
+
+                    margin-right: 1rem;
+                }
+
+                height: 100%;
+            }
+
+            li:hover {
+                border-bottom: 2px solid #ffffff91;
+
+                span {
+                    color: rgba(155, 154, 154, 0.979);
+                }
+            }
+
+            li.active {
+                border-bottom: 2px solid #FFFFFF;
+            }
+
+        }
+
+        ul::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 1px;
+            left: -400px;
+            opacity: 25%;
+            background: $white;
+        }
+
+    }
+
+    .mobile-nav {
+        display: none;
+
+    }
+
+}
+
+main {
+
+    .section-id {
+        margin: 5rem 0rem 6rem 10rem;
+        @include font('barlow');
+        font-weight: 100;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 1.7em;
+
+        span {
+            color: $light_blue;
+            margin-right: 1rem;
+        }
+    }
+
+
+    .crew {
+        width: 100%;
+        height: 25rem;
+
+        .description {
+            padding: 4rem 0rem 5rem 10rem;
+
+            .name {
+                margin: 1rem 0rem;
+                font-size: 3em;
+                @include font('bellefair');
+                font-weight: 400;
+            }
+
+            .role {
+                margin: 1rem 0rem;
+                @include font('bellefair');
+                font-weight: 400;
+                color: $light_blue;
+                font-size: 1.5em;
+                text-transform: uppercase;
+
+
+            }
+
+            .about {
+                width: 40%;
+                @include font('barlow')
+            }
+
+            p {
+                color: $light_blue;
+                line-height: 32px;
+            }
+        }
+    }
+
+    img {
+        position: absolute;
+        right: 3rem;
+        bottom: 0;
+        width: 35rem;
+        height: 35rem;
+        object-fit: contain;
+
+    }
+
+    .nav-dots {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        width: 9rem;
+        margin: 4rem 0rem 4rem 10.5rem;
+
+        span {
+            background: rgba(255, 255, 255, 0.301);
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            cursor: pointer;
+
+        }
+
+        span:hover {
+
+            background: rgba(255, 255, 255, 0.63);
+
+        }
+
+        span.active {
+            background: white;
+        }
+
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    body {
+        height: 100vh;
+        background: url('../../assets/crew/background-crew-tablet.jpg') center no-repeat;
+        background-size: cover;
+    }
+
+    header {
+        padding: 0rem;
+
+        .desktop-nav {
+            ul {
+                width: 30rem;
+                padding: 0rem 1rem 0rem 1rem;
+
+                li {
+                    padding: 2rem 1rem;
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                backdrop-filter: blur(81px);
+            }
+
+            ul::before {
+                display: none;
+            }
+
+        }
+
+
+        img {
+            margin: 2rem;
+        }
+    }
+
+    main {
+        .section-id {
+            margin: 2rem 0rem 4rem 2rem;
+            font-size: 1.3em;
+        }
+
+        .crew {
+            height: 100%;
+            text-align: center;
+
+            .description {
+                padding: 0rem 0rem 2rem 0rem;
+
+                .about {
+                    margin: 0 auto;
+                    width: 60%;
+                }
+
+                .name {
+                    font-size: 2.5em;
+                }
+
+                .role {
+                    font-size: 1.3em;
+                }
+            }
+        }
+
+        .nav-dots {
+            margin: 2rem auto;
+
+            span {
+                width: 13px;
+                height: 13px;
+            }
+
+        }
+
+        img {
+            width: 25rem;
+            height: 27rem;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+    body {
+        background: url('../../assets/crew/background-crew-mobile.jpg') center no-repeat;
+        background-size: cover;
+    }
+
+    header {
+
+        .desktop-nav {
+            display: none;
+        }
+
+        .mobile-nav {
+            display: block;
+
+            ul {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 75%;
+                height: 100%;
+                visibility: hidden;
+                z-index: 3;
+                padding: 13rem 4rem 0rem 2rem;
+                background: rgba(255, 255, 255, 0.034);
+                backdrop-filter: blur(81px);
+                // transform: translateX(100%);
+                opacity: 0;
+                transition: opacity .5s ease-in-out;
+
+                .icn-close {
+                    position: absolute;
+                    top: 0rem;
+                    right: 0rem;
+                    cursor: pointer;
+                }
+
+                li {
+                    font-size: 1.4em;
+                    margin: 0rem 0rem 2rem 0rem;
+
+                    span {
+                        display: inline-block;
+                        margin-right: 1rem;
+
+                    }
+                }
+            }
+
+        }
+
+        ul.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+
+    main {
+        .section-id {
+            text-align: center;
+            margin-top: 0rem;
+        }
+
+        .crew {
+            margin-top: 32rem;
+            height: 17rem;
+
+            .description {
+                .about {
+                    width: 80%;
+                }
+            }
+        }
+
+        img {
+            width: 20rem;
+            height: 22rem;
+            top: 12rem;
+            border-bottom: 1px solid $light_blue;
+        }
+
+
+        .nav-dots {
+            position: relative;
+            top: -20rem;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+
+    }
+
+}
