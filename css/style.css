@@ -229,6 +229,7 @@ main button:hover div {
   }
   body {
     background: url("../assets/home/background-home-tablet.jpg") center no-repeat;
+    height: 100%;
   }
   main {
     display: block;

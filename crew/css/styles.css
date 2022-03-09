@@ -280,6 +280,7 @@ main .nav-dots span.active {
   body {
     background: url("../../assets/crew/background-crew-mobile.jpg") center no-repeat;
     background-size: cover;
+    height: 100%;
   }
   header .desktop-nav {
     display: none;
