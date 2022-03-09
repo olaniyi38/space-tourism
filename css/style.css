@@ -6,7 +6,7 @@
 }
 
 body {
-  background: url("../../assets/home/background-home-desktop.jpg") center no-repeat;
+  background: url("../assets/home/background-home-desktop.jpg") center no-repeat;
   height: 100vh;
   color: #FFFFFF;
   background-attachment: fixed;
@@ -22,12 +22,12 @@ a {
 
 @font-face {
   font-family: bellefair;
-  src: url("../../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf");
+  src: url("../assets/fonts/Barlow_Condensed/Bellefair/Bellefair-Regular.ttf");
 }
 
 @font-face {
   font-family: barlow;
-  src: url("../../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf");
+  src: url("../assets/fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf");
 }
 
 .black {
@@ -228,7 +228,7 @@ main button:hover div {
     margin: 2rem;
   }
   body {
-    background: url("../../assets/home/background-home-tablet.jpg") center no-repeat;
+    background: url("../assets/home/background-home-tablet.jpg") center no-repeat;
   }
   main {
     display: block;
