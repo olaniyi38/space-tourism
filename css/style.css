@@ -7,12 +7,7 @@
 
 body {
   background: url("../assets/home/background-home-desktop.jpg") center no-repeat;
-  height: 100vh;
   color: #FFFFFF;
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
 }
 
 a {
@@ -31,7 +26,7 @@ a {
 }
 
 .black {
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: auto;
   width: 150px;
@@ -202,7 +197,7 @@ main button:hover div {
           transform: scale(1);
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   body {
     position: relative;
   }
@@ -229,10 +224,10 @@ main button:hover div {
   }
   body {
     background: url("../assets/home/background-home-tablet.jpg") center no-repeat;
-    height: 100%;
   }
   main {
     display: block;
+    padding-bottom: 2rem;
   }
   main .intro {
     padding: 5rem 0rem 0rem 0rem;
@@ -253,9 +248,6 @@ main button:hover div {
 }
 
 @media screen and (max-width: 425px) {
-  body {
-    overflow-x: hidden;
-  }
   header .desktop-nav {
     display: none;
   }
@@ -263,7 +255,7 @@ main button:hover div {
     display: block;
   }
   header .mobile-nav ul {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0rem;
     width: 75%;
@@ -296,8 +288,11 @@ main button:hover div {
     opacity: 1;
     visibility: visible;
   }
+  main .intro h3 {
+    font-size: 1.3em;
+  }
   main .intro h1 {
-    font-size: 7rem;
+    font-size: 4.5em;
   }
 }
 /*# sourceMappingURL=style.css.map */

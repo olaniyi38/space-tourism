@@ -12,13 +12,9 @@ $dark_blue:#0B0D17;
 
 body {
     background: url('../assets/home/background-home-desktop.jpg') center no-repeat;
-    height: 100vh;
     color: $white;
-    background-attachment: fixed;
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
 }
+   
 
 a {
     text-decoration: none;
@@ -46,7 +42,7 @@ a {
 }
 
 .black {
-    position: absolute;
+    position: fixed;
     inset: 0;
     margin: auto;
     width: 150px;
@@ -133,6 +129,7 @@ header {
 
     .mobile-nav {
         display: none;
+       
 
     }
 
@@ -217,7 +214,7 @@ main {
 }
 
 // media queries
-@media screen and (max-width:768px) {
+@media(max-width:768px) {
     body {
         position: relative;
     }
@@ -255,14 +252,13 @@ main {
 
     body {
         background: url('../assets/home/background-home-tablet.jpg') center no-repeat;
-        height: 100%;
 
 
     }
 
     main {
         display: block;
-
+         padding-bottom: 2rem;
         .intro {
             padding: 5rem 0rem 0rem 0rem;
             width: 100%;
@@ -288,10 +284,6 @@ main {
 }
 
 @media screen and (max-width:425px) {
-    body {
-        overflow-x: hidden;
-    }
-
     header {
 
         .desktop-nav {
@@ -302,7 +294,7 @@ main {
             display: block;
 
             ul {
-                position: absolute;
+                position: fixed;
                 top: 0;
                 right: 0rem;
                 width: 75%;
@@ -345,9 +337,12 @@ main {
 
     main {
         .intro {
+            h3{
+                font-size: 1.3em;    
+            }
             h1 {
 
-                font-size: 7rem;
+                font-size: 4.5em;
 
             }
         }

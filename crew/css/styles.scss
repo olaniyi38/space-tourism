@@ -43,7 +43,7 @@ body {
 }
 
 .black {
-    position: absolute;
+    position: fixed;
     inset: 0;
     margin: auto;
     width: 150px;
@@ -231,7 +231,6 @@ main {
 
 @media screen and (max-width:768px) {
     body {
-        height: 100vh;
         background: url('../../assets/crew/background-crew-tablet.jpg') center no-repeat;
         background-size: cover;
     }
@@ -263,11 +262,13 @@ main {
 
 
         img {
-            margin: 2rem;
+            margin: 1rem;
+           
         }
     }
 
     main {
+        position: relative;
         .section-id {
             margin: 2rem 0rem 4rem 2rem;
             font-size: 1.3em;
@@ -297,7 +298,10 @@ main {
 
         .nav-dots {
             margin: 2rem auto;
-
+            position: absolute;
+            right: 0;
+            left: 0;
+             bottom: 19rem;
             span {
                 width: 13px;
                 height: 13px;
@@ -306,10 +310,9 @@ main {
         }
 
         img {
+            position: static;
             width: 25rem;
-            height: 27rem;
-            right: 0;
-            left: 0;
+            height: 20rem;
             margin: 0 auto;
         }
     }
@@ -319,7 +322,6 @@ main {
     body {
         background: url('../../assets/crew/background-crew-mobile.jpg') center no-repeat;
         background-size: cover;
-        height: 100%;
     }
 
     header {
@@ -332,7 +334,7 @@ main {
             display: block;
 
             ul {
-                position: absolute;
+                position:fixed;
                 top: 0;
                 right: 0;
                 width: 75%;
@@ -371,6 +373,7 @@ main {
             opacity: 1;
             visibility: visible;
         }
+       
     }
 
 
@@ -381,7 +384,7 @@ main {
         }
 
         .crew {
-            margin-top: 32rem;
+            margin-top: 28rem;
             height: 17rem;
 
             .description {
@@ -392,9 +395,12 @@ main {
         }
 
         img {
+            position: absolute;
             width: 20rem;
-            height: 22rem;
-            top: 12rem;
+            height: 20rem;
+            left: 0;
+            right: 0;
+            top: 4rem;
             border-bottom: 1px solid $light_blue;
         }
 

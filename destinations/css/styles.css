@@ -29,7 +29,7 @@ body {
 }
 
 .black {
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: auto;
   width: 150px;
@@ -363,14 +363,14 @@ main .destinations .content .travel-time p {
     display: block;
   }
   header .mobile-nav ul {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 75%;
     height: 100%;
     visibility: hidden;
     z-index: 3;
-    padding: 13rem 4rem 0rem 2rem;
+    padding: 12rem 4rem 0rem 2rem;
     background: rgba(255, 255, 255, 0.034);
     -webkit-backdrop-filter: blur(81px);
             backdrop-filter: blur(81px);
@@ -397,8 +397,12 @@ main .destinations .content .travel-time p {
     visibility: visible;
   }
   main nav {
-    width: 26rem;
-    top: 14rem;
+    width: 22rem;
+    top: 14.5rem;
+    padding: 0rem 2rem;
+  }
+  main nav ul li {
+    margin: 0rem 1rem;
   }
   main h1 {
     padding: 0rem 0rem 2rem 1rem;
