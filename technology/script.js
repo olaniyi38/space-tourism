@@ -1,16 +1,23 @@
 const container = document.querySelector('main .container')
 const navItems = document.querySelectorAll('.nav span')
+let allData = []
+let imageIndex = 0;
 
-document.addEventListener('DOMContentLoaded',()=>{
-    gsap.to('.black',{
-        duration:.6,
-        scale:0,
-        delay:.5
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('../data.json')
+        .then(res => res.json())
+        .then(data => {
+            allData = [...data.technology]
+        })
+    gsap.to('.black', {
+        duration: .6,
+        scale: 0,
+        delay: .5
     })
 })
 
 function showDestination({name, images, description}) {
-    console.log(name, images,description);
     container.innerHTML =
         `
         <div class="info">
@@ -22,14 +29,9 @@ function showDestination({name, images, description}) {
            ${description}
         </p>
     </div>
-    <div class="image" alt="jjj" ></div>
-
+    <img src="${ window.innerWidth <= 768 ? images.landscape : images.portrait}" alt="" class="image">
   
 `
-let image = document.querySelector('main .container .image')
-console.log(image)
-image.style.backgroundImage = '../assets/technology/image-launch-vehicle-landscape.jpg'
-image.style.color= 'red'
 }
 
 let getData = (num) => {
@@ -37,26 +39,49 @@ let getData = (num) => {
         .then(res => res.json())
         .then(data => {
             const technology = data.technology
+             allData = [...technology]
             showDestination(technology[num - 1])
         })
 }
+
+getData(1)
+
 
 function toggleActive(elements, currentElement){
      elements.forEach((element)=>{
          element.classList.remove('active')
      })
      currentElement.classList.add('active')
-}
+    }
+   
 
 navItems.forEach((item)=>{
    item.addEventListener('click',(e)=>{
-       console.log('clicked')
        let index = e.target.dataset.index
-       
+       imageIndex = index - 1
        getData(index)
+       changeImg()
        toggleActive(navItems, item)  
    })
 })
+
+//for changing image oreientation
+
+function changeImg(){
+        let image = document.querySelector('main .container .image')
+        let landscapeSrc = allData[imageIndex].images.landscape
+        let portraitSrc = allData[imageIndex].images.portrait
+        console.log(portraitSrc)
+        if(window.innerWidth <= 768){
+        image.setAttribute('src', landscapeSrc)
+        }else{
+        console.log('hi')  
+        image.setAttribute('src', portraitSrc) 
+       }
+}
+
+window.addEventListener('resize',changeImg)
+
 
 let closeIcon = document.querySelector('.icn-close')
 let hamburger = document.querySelector('.icn-open')
@@ -69,3 +94,4 @@ hamburger.addEventListener('click',()=>{
 closeIcon.addEventListener('click',()=>{
        mobileNav.classList.remove('active')
 })
+

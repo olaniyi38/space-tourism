@@ -216,13 +216,12 @@ main {
         }
 
         .image {
-            background: url('../../assets/technology/image-launch-vehicle-landscape.jpg') top no-repeat;
             margin-left: auto;
             position: relative;
             top: -7rem;
             width: 30rem;
             height: 30rem;
-            background-size: contain;
+           
 
         }
     }
@@ -276,13 +275,11 @@ main {
             grid-template-columns: 1fr;
 
             .image {
-                background: url('../../assets/technology/image-launch-vehicle-landscape.jpg') top no-repeat;
-                background-size: contain;
                 top: 0;
                 grid-area: 1/1;
                 width: 100%;
                 height: 350px;
-
+                 object-fit: cover;
             }
 
             .info {
@@ -380,7 +377,9 @@ main {
 
             .info {
                 padding-top: 8rem;
-
+                p.name{
+                    font-size: 2em;
+                }
                 .about {
                     width: 80%;
                 }
