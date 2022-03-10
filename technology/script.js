@@ -3,8 +3,19 @@ const navItems = document.querySelectorAll('.nav span')
 let allData = []
 let imageIndex = 0;
 
+let getData = (num) => {
+    fetch('../data.json')
+        .then(res => res.json())
+        .then(data => {
+            const technology = data.technology
+             allData = [...technology]
+            showDestination(technology[num - 1])
+        })
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
+    getData(1)
     fetch('../data.json')
         .then(res => res.json())
         .then(data => {
@@ -34,17 +45,6 @@ function showDestination({name, images, description}) {
 `
 }
 
-let getData = (num) => {
-    fetch('../data.json')
-        .then(res => res.json())
-        .then(data => {
-            const technology = data.technology
-             allData = [...technology]
-            showDestination(technology[num - 1])
-        })
-}
-
-getData(1)
 
 
 function toggleActive(elements, currentElement){
